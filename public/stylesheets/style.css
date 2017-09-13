@@ -1,0 +1,160 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  height: 100vh;
+  overflow: hidden;
+  width: 100vw;
+  display: flex;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.utility-pane {
+  height: 100%;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.result-pane {
+  height: 100%;
+  width: 60%;
+  background-color: GAINSBORO;
+}
+
+
+#main-title{
+  margin-top: 0px;
+	font-size: 60px;
+	margin-bottom: 0px;
+  position: relative;
+  top: -30px;
+}
+
+#main-sub{
+  position: relative;
+  top: -30px;
+}
+
+a {
+  color: #00B7FF;
+}
+.torrentForm {
+  width: 90%;
+  text-align: center;
+}
+
+.torrentURLField {
+  padding: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 70%;
+}
+.submitBtn{
+  color: white;
+  background: black;
+  cursor: pointer;
+  border: 1px solid black;
+  padding: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.submitBtn:hover{
+  color: black;
+  background: white;
+  border: 2px solid black;
+}
+
+
+.result {
+  list-style:  none;
+  padding-left: 0px;
+  padding-top: 0px;
+  margin-top: 0px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.result-head{
+  background-color: white;
+  border-left: 1px solid GAINSBORO;
+  border-bottom: 1px solid GAINSBORO;
+  text-align: right;
+  padding-top: 10px;
+  padding-right: 20px;
+}
+
+.result-head h2{
+  margin-top: 0;
+}
+
+.torrent-item{
+  width: 100%;
+  padding: 10px;
+  background-color: white;
+  border-left: 1px solid GAINSBORO;
+  border-bottom: 1px solid GAINSBORO;
+
+}
+
+.torrent {
+  display: flex;
+}
+.torrent-icon {
+  width: 10%;
+}
+.torrent-icon img{
+  width: 80px;
+  height: 80px;
+}
+.torrent-summary {
+  width: 90%;
+  padding: 10px;
+}
+
+.torrent-summary button {
+  border: 1px solid DodgerBlue;
+  background: transparent;
+  color: DodgerBlue;
+  padding: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.torrent-summary button:hover {
+  color: white;
+  background: DodgerBlue;
+}
+
+.torrent-summary .remove-btn{
+  border: 1px solid Crimson;
+  color: Crimson;
+}
+
+.torrent-summary .remove-btn:hover {
+  color: white;
+  background: Crimson;
+}
+
+.file-list{
+  list-style: none;
+}
+
+.file-item button {
+  border: 1px solid ForestGreen;
+  background: transparent;
+  color: ForestGreen;
+  padding: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.file-item button:hover {
+  color: white;
+  background: ForestGreen;
+}

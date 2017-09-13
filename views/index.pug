@@ -1,0 +1,41 @@
+extends layout
+
+block content
+	.utility-pane
+		img#main-logo(src='images/logo.png')
+		h1#main-title= title
+		p#main-sub Torrent Streaming Service
+		form.torrentForm(ng-submit='addTorrent()', name='torrentForm')
+			input.torrentURLField(type='text', name='torrentURL', ng-model='torrentUrl')
+			button.submitBtn(type='submit', name='submitBtn') ADD TORRENT
+	.result-pane
+		.result-head
+				h2 AVAILABLE TORRENTS
+		ul.result(ng-init='getTorrents()')
+			li.torrent-item(ng-repeat='torrent in torrents')
+				.torrent
+					.torrent-icon
+						img(src='images/folder1.png')
+					.torrent-summary
+						b {{torrent.name}}
+						span &nbsp; &nbsp; - &nbsp; &nbsp;
+						span(ng-show="torrent.totalSize/1000 > 1 && torrent.totalSize/1000000 < 1") {{torrent.totalSize/1000000  | number:2}} MB
+						span(ng-show="torrent.totalSize/1000000 > 1 && torrent.totalSize/1000000000 < 1") {{torrent.totalSize/1000000  | number:2}} MB
+						span(ng-show="torrent.totalSize/1000000000 > 1") {{torrent.totalSize/1000000000  | number:2}} GB
+						br
+						br
+						button(ng-show='torrent.percentDone*100 == 100 && !openedTorrent', ng-click='openTorrent(torrent)') OPEN
+						button(ng-show='torrent.percentDone*100 == 100 && openedTorrent', ng-click='openTorrent(torrent)') CLOSE
+						span &nbsp;
+						button.remove-btn(ng-show='torrent.percentDone*100 == 100', ng-click='removeTorrent(torrent)') REMOVE
+						.stat-1.stat-bar(style='width: 40vw;', ng-show='torrent.percentDone*100 < 100')
+							span.stat-bar-rating(role='stat-bar', style='width: {{torrent.percentDone*100}}%;') {{torrent.percentDone*100}}%
+						span(ng-show='torrent.percentDone*100 < 100') &nbsp; {{torrent.percentDone*100 | number:2}}%
+				.torrent-details(ng-show="openedTorrent.name == torrent.name")
+					ul.file-list
+						b FILES
+						li.file-item(ng-repeat='file in openedTorrent.files')
+							p {{file.name}}&nbsp;		
+							button(ng-click='playFile(torrent, file)') STREAM
+							p(ng-show='file.streamUrl') STREAM URL:  {{file.streamUrl}}
+
